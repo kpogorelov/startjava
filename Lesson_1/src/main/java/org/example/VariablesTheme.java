@@ -3,21 +3,21 @@ package org.example;
 public class VariablesTheme {
     public static void main(String[] args) {
         System.out.println("1. Вывод значений переменных на консоль");
-        byte ssdMemory = 8;
-        short diagonal = 13;
-        int weight = 1400;
+        byte sizeRAM = 8;
+        short screenSizeInInches = 13;
+        int weightInKilogram = 1400;
         long screenResolution = 25601600L;
         float versionBluetooth = 5.0f;
-        double jack = 3.5d;
+        double jackMicrophone = 3.5d;
         boolean isPractical = true;
         char cpuType = 'M';
-        System.out.println(ssdMemory + ": В данном устройстве MacBook Air 8 ggb оперативной памяти");
-        System.out.println(diagonal + ": Диагональ 13 дюймов");
-        System.out.println(weight + ": Вес составляет 1300 гр");
+        System.out.println(sizeRAM + ": В данном устройстве MacBook Air 8 ggb оперативной памяти");
+        System.out.println(screenSizeInInches + ": Диагональ 13 дюймов");
+        System.out.println(weightInKilogram + ": Вес составляет 1300 гр");
         System.out.println(screenResolution + ": Данный параметр ялвяется разрешением экрана");
         System.out.println(versionBluetooth + ": Имеет bluetooth 5.0");
         System.out.println(isPractical + ": Является ли он практичным? да");
-        System.out.println(jack + ": Аудио интерфейсы");
+        System.out.println(jackMicrophone + ": Аудио интерфейсы");
         System.out.println(cpuType + ": Тип процессора М");
 
         System.out.println("2. Расчет стоимости товара со скидкой");
@@ -39,37 +39,20 @@ public class VariablesTheme {
 
         System.out.println("4. Вывод min и max значений целых числовых типов");
         byte max = Byte.MAX_VALUE;
-        System.out.println(max);
-        max++;
-        System.out.println(max);
-        max--;
-        System.out.println(max);
+        System.out.println(max + ", " + ++max + ", " + --max);
         short max1 = Short.MAX_VALUE;
-        System.out.println(max1);
-        max1++;
-        System.out.println(max1);
-        max1--;
-        System.out.println(max1);
+        System.out.println(max1 + ", " + ++max1 + ", " + --max1);
         int max2 = Integer.MAX_VALUE;
-        System.out.println(max2);
-        max2++;
-        System.out.println(max2);
-        max2--;
-        System.out.println(max2);
+        System.out.println(max2 + ", " + ++max2 + ", " + --max2);
         long max3 = Long.MAX_VALUE;
-        System.out.println(max3);
-        max3++;
-        System.out.println(max3);
-        max3--;
-        System.out.println(max3);
+        System.out.println(max3 + ", " + ++max3 + ", " + --max3);
 
         System.out.println("5. Перестановка значений переменных");
         System.out.println("С помощью третьей переменной temporary:");
         int digit1 = 2;
         int digit2 = 5;
-        int temp;
+        int temp = digit1;
         System.out.println("Изначальные значения переменных: digit1 = " + digit1 + ", digit2 = " + digit2);
-        temp = digit1;
         digit1 = digit2;
         digit2 = temp;
         System.out.println("Теперь значение digit1: " + digit1);
@@ -106,11 +89,11 @@ public class VariablesTheme {
         char underscore1 = '_';
         char leftBracket = '(';
         char rightBracket = ')';
-        System.out.println("     " + slash + " " + backSlash + "\n" +
-                "    " + slash +"   "+ backSlash + "\n" +
-                "   " + slash + underscore1 + leftBracket + " " + rightBracket + " " + backSlash + "\n" +
-                "  " + slash + "       " + backSlash + "\n" +
-                " " + slash + "" + underscore1 + " " + underscore1 + " " + underscore1 + "" + slash + " " + backSlash + "" + underscore1 + "" + backSlash);
+        System.out.println("     " + slash + backSlash + "\n" +
+                "    " + slash +"  "+ backSlash + "\n" +
+                "   " + slash + underscore1 + leftBracket + rightBracket + " " + backSlash + "\n" +
+                "  " + slash + "      " + backSlash + "\n" +
+                " " + slash + underscore1 + underscore1 + underscore1 + underscore1 + underscore1 + slash + backSlash + underscore1 + backSlash);
 
         System.out.println("8. Вывод количества сотен, десятков и единиц числа");
         int number = 123;

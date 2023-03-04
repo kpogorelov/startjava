@@ -35,20 +35,19 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n2. Поиск max и min числа");
-        int digit1 = 11;
-        int digit2 = 32;
-        if (digit1 > digit2) {
-            System.out.println("digit1 = " + digit1 + " это максимальное число. Минимальное digit2 = " + digit2);
-        } else if (digit2 > digit1) {
-            System.out.println("digit2 = " + digit2 + " это максимальное число. Минимальное digit1 = " + digit1);
+        int numberMinOrMax1 = 11;
+        int numberMinOrMax2 = 32;
+        if (numberMinOrMax1 > numberMinOrMax2) {
+            System.out.println("numberMinOrMax1 = " + numberMinOrMax1 + " это максимальное число. Минимальное numberMinOrMax2 = " + numberMinOrMax2);
+        } else if (numberMinOrMax2 > numberMinOrMax1) {
+            System.out.println("numberMinOrMax2 = " + numberMinOrMax2 + " это максимальное число. Минимальное numberMinOrMax1 = " + numberMinOrMax1);
         } else {
-            System.out.println("Числа равны. Digit1 = " + digit1 + ", digit2 = " + digit2);
+            System.out.println("Числа равны. numberMinOrMax1 = " + numberMinOrMax1 + ", numberMinOrMax2 = " + numberMinOrMax2);
         }
 
         System.out.println("\n3. Проверка числа"); // не ноль  + - четное нечетное
         int randomNumber = 3;
         if (randomNumber != 0) {
-            System.out.println("Число не ноль");
             if (randomNumber % 2 == 0) {
                 System.out.println("Число четное");
             } else {
@@ -60,67 +59,64 @@ public class IfElseStatementTheme {
                 System.out.println("Число отрицательное");
             }
         } else {
-            System.out.println("Число randomNumber = 0, проверки на + - и положительность отрицательность пропускаются");
+            System.out.println("Число = " + randomNumber);
         }
 
         System.out.println("\n4. Поиск одинаковых цифр в числах");
-        int firstDigit = 123;
-        int secondDigit = 223;
-        int hundredFirstDigit = firstDigit / 100;
-        int hundredSecondDigit = secondDigit / 100;
-        int dozenFirstDigit = (firstDigit / 10) % 10;
-        int dozenSecondDigit = (secondDigit / 10) % 10;
-        int secondsFirstNumber = firstDigit % 10;
-        int secondsSecondNumber = firstDigit % 10;
-        System.out.println("firstDigit = " + firstDigit + ", secondDigit = " + secondDigit);
-        if (hundredFirstDigit == hundredSecondDigit) {
-            System.out.println("Сотая часть firstDigit и secondDigit равны. firstDigit = " + hundredFirstDigit + ", Сотая часть secondDigit = " + hundredSecondDigit);
-        } else {
-            System.out.println("Сотая часть firstDigit и secondDigit не равны. firstDigit = " + hundredFirstDigit + ", Сотая часть secondDigit = " + hundredSecondDigit);
-        }
-        if (dozenFirstDigit == dozenSecondDigit) {
-            System.out.println("Десятые части чисел равны. dozenFirstDigit = " + dozenFirstDigit + ", dozenSecondDigit = " + dozenSecondDigit);
-        } else {
-            System.out.println("Десятые части чисел не равны. dozenFirstDigit = " + dozenFirstDigit + ", dozenSecondDigit = " + dozenSecondDigit);
-        }
-        if (secondsFirstNumber == secondsSecondNumber) {
-            System.out.println("Разряды секнд в числах равны. secondsFirstNumber = " + secondsFirstNumber + ", secondsSecondNumber = " + secondsSecondNumber);
-        } else {
-            System.out.println("Разряды секнд в числах не равны. secondsFirstNumber = " + secondsFirstNumber + ", secondsSecondNumber = " + secondsSecondNumber);
+        int number1 = 123;
+        int number2 = 456;
+        int hundredNumber1 = number1 / 100;
+        int hundredNumber2 = number2 / 100;
+        int tensNumber1 = (number1 / 10) % 10;
+        int tensNumber2 = (number2 / 10) % 10;
+        int secondsNumber1 = number1 % 10;
+        int secondsNumber2 = number2 % 10;
+        System.out.println("number1 = " + number1 + ", number2 = " + number2);
+        if (hundredNumber1 == hundredNumber2 || tensNumber1 == tensNumber2 || secondsNumber1 == secondsNumber2) {
+            if (hundredNumber1 == hundredNumber2) {
+                System.out.println("Сотая часть number1 и number2 равны. number1 = " + hundredNumber1 + ", Сотая часть number2 = " + hundredNumber2);
+            } else {
+                System.out.println("Сотая часть number1 и number2 не равны. number1 = " + hundredNumber1 + ", Сотая часть number2 = " + hundredNumber2);
+            }
+            if (tensNumber1 == tensNumber2) {
+                System.out.println("Десятые части чисел равны. tensNumber1 = " + tensNumber1 + ", tensNumber2 = " + tensNumber2);
+            } else {
+                System.out.println("Десятые части чисел не равны. tensNumber1 = " + tensNumber1 + ", tensNumber2 = " + tensNumber2);
+            }
+            if (secondsNumber1 == secondsNumber2) {
+                System.out.println("Разряды секунд в числах равны. secondsNumber1 = " + secondsNumber1 + ", secondsNumber2 = " + secondsNumber2);
+            } else {
+                System.out.println("Разряды секунд в числах не равны. secondsNumber1 = " + secondsNumber1 + ", secondsNumber2 = " + secondsNumber2);
+            }
         }
 
         System.out.println("\n5. Определение символа по его коду");
-        char myChar = '\u0052';
-        if (myChar >= 'A' && myChar <= 'Z') {
+        char someChar = '\u0052';
+        if (someChar >= 'A' && someChar <= 'Z') {
             System.out.println("Это большая буква");
-        } else if (myChar >= 'a' && myChar <= 'z') {
+        } else if (someChar >= 'a' && someChar <= 'z') {
             System.out.println("Это маленькая буква");
-        } else if (myChar >= '0' && myChar <= '9') {
+        } else if (someChar >= '0' && someChar <= '9') {
             System.out.println("Это число");
         } else {
             System.out.println("Это не буква и не число");
         }
 
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
-        int contribution = 150_000;
-        double fivePercent = contribution * 0.05;
-        double sevenPercent = contribution * 0.07;
-        double tenPercent = contribution * 0.10;
+        int contribution = 301_000;
+        double percent = 0.0;
         int resultSum;
         System.out.println(contribution + " - Сумма вклада");
         if (contribution > 300_000) {
-            resultSum = (int) (contribution + tenPercent);
-            System.out.println("Вклад: " + contribution + "\nНачисленный процент: " + (int) (tenPercent) + "\nИтоговая" +
-                    "сумма с учетом добавленных процентов:" + resultSum);
+            percent = 0.1;
         } else if (contribution >= 100_000 && contribution <= 300_000) {
-            resultSum = (int) (contribution + sevenPercent);
-            System.out.println("Вклад: " + contribution + "\nНачисленный процент: " + (int) (sevenPercent) + "\nИтоговая" +
-                    "сумма с учетом добавленных процентов:" + resultSum);
+            percent = 0.07;
         } else if (contribution < 100_000 && contribution > 0) {
-            resultSum = (int) (contribution + fivePercent);
-            System.out.println("Вклад: " + contribution + "\nНачисленный процент: " + (int) (fivePercent) + "\nИтоговая" +
-                    "сумма с учетом добавленных процентов:" + resultSum);
+            percent = 0.05;
         }
+        resultSum = (int) (contribution + (contribution * percent));
+        System.out.println("Сумма вклада = " + contribution + "\nНачисленный % = " + percent + "\nИтоговая" +
+                "сумма с % = " + resultSum);
 
         System.out.println("\n7. Определение оценки по предметам");
         int historyPercent = 59;
@@ -168,7 +164,7 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n9. Подсчет количества банкнот");
-        int money = 675;
+        int money = 359;
         int hundredsMoney = money / 100;
         int tensMoney = (money / 10) % 10;
         int onesMoney = money % 10;
@@ -178,7 +174,7 @@ public class IfElseStatementTheme {
         System.out.println(hundredsMoney + " " + tensMoney + " " + onesMoney); // 10 5 50 task
         int hundreds = 10;
         int tens = 5;
-        int ones = 50;
+        int ones = 8;
         if (hundreds >= hundredsMoney) {
             howHundredsMoney = hundredsMoney;
             if (tens >= tensMoney) {
@@ -238,6 +234,6 @@ public class IfElseStatementTheme {
                 ones + " - единицы");
         System.out.println("Требуемое кол-во: " + hundredsMoney + " - сотни, " + tensMoney + " - десятки, " +
                 onesMoney + " - единицы");
-        System.out.println("Выданная сумма: " + howHundredsMoney + howTensMoney +  howOnesMoney);
+        System.out.println("Выданная сумма: " + howHundredsMoney + howTensMoney + howOnesMoney);
     }
 }
