@@ -3,19 +3,19 @@ package org.example;
 public class VariablesTheme {
     public static void main(String[] args) {
         System.out.println("1. Вывод значений переменных на консоль");
-        byte sizeRAM = 8;
-        short screenSizeInInches = 13;
-        int weightInKilogram = 1400;
+        byte sizeRam = 8;
+        short screenSizeInch = 13;
+        int weightKg = 1400;
         long screenResolution = 25601600L;
-        float versionBluetooth = 5.0f;
+        float bluetoothVersion = 5.0f;
         double jackMicrophone = 3.5d;
         boolean isPractical = true;
         char cpuType = 'M';
-        System.out.println(sizeRAM + ": В данном устройстве MacBook Air 8 ggb оперативной памяти");
-        System.out.println(screenSizeInInches + ": Диагональ 13 дюймов");
-        System.out.println(weightInKilogram + ": Вес составляет 1300 гр");
+        System.out.println(sizeRam + ": В данном устройстве MacBook Air 8 ggb оперативной памяти");
+        System.out.println(screenSizeInch + ": Диагональ 13 дюймов");
+        System.out.println(weightKg + ": Вес составляет 1300 гр");
         System.out.println(screenResolution + ": Данный параметр ялвяется разрешением экрана");
-        System.out.println(versionBluetooth + ": Имеет bluetooth 5.0");
+        System.out.println(bluetoothVersion + ": Имеет bluetooth 5.0");
         System.out.println(isPractical + ": Является ли он практичным? да");
         System.out.println(jackMicrophone + ": Аудио интерфейсы");
         System.out.println(cpuType + ": Тип процессора М");

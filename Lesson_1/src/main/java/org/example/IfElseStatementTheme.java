@@ -35,14 +35,14 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n2. Поиск max и min числа");
-        int numberMinOrMax1 = 11;
-        int numberMinOrMax2 = 32;
-        if (numberMinOrMax1 > numberMinOrMax2) {
-            System.out.println("numberMinOrMax1 = " + numberMinOrMax1 + " это максимальное число. Минимальное numberMinOrMax2 = " + numberMinOrMax2);
-        } else if (numberMinOrMax2 > numberMinOrMax1) {
-            System.out.println("numberMinOrMax2 = " + numberMinOrMax2 + " это максимальное число. Минимальное numberMinOrMax1 = " + numberMinOrMax1);
+        int number3 = 11;
+        int number4 = 32;
+        if (number3 > number4) {
+            System.out.println("numberMinOrMax1 = " + number3 + " это максимальное число. Минимальное numberMinOrMax2 = " + number4);
+        } else if (number4 > number3) {
+            System.out.println("numberMinOrMax2 = " + number4 + " это максимальное число. Минимальное numberMinOrMax1 = " + number3);
         } else {
-            System.out.println("Числа равны. numberMinOrMax1 = " + numberMinOrMax1 + ", numberMinOrMax2 = " + numberMinOrMax2);
+            System.out.println("Числа равны. numberMinOrMax1 = " + number3 + ", numberMinOrMax2 = " + number4);
         }
 
         System.out.println("\n3. Проверка числа"); // не ноль  + - четное нечетное
@@ -63,31 +63,27 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n4. Поиск одинаковых цифр в числах");
-        int number1 = 123;
-        int number2 = 456;
-        int hundredNumber1 = number1 / 100;
-        int hundredNumber2 = number2 / 100;
-        int tensNumber1 = (number1 / 10) % 10;
-        int tensNumber2 = (number2 / 10) % 10;
-        int secondsNumber1 = number1 % 10;
-        int secondsNumber2 = number2 % 10;
+        int number1 = 232;
+        int number2 = 242;
+        int hundredsUnitNumber1 = number1 / 100;
+        int hundredsUnitNumber2 = number2 / 100;
+        int tensUnitNumber1 = (number1 / 10) % 10;
+        int tensUnitNumber2 = (number2 / 10) % 10;
+        int onesUnitNumber1 = number1 % 10;
+        int onesUnitNumber2 = number2 % 10;
         System.out.println("number1 = " + number1 + ", number2 = " + number2);
-        if (hundredNumber1 == hundredNumber2 || tensNumber1 == tensNumber2 || secondsNumber1 == secondsNumber2) {
-            if (hundredNumber1 == hundredNumber2) {
-                System.out.println("Сотая часть number1 и number2 равны. number1 = " + hundredNumber1 + ", Сотая часть number2 = " + hundredNumber2);
-            } else {
-                System.out.println("Сотая часть number1 и number2 не равны. number1 = " + hundredNumber1 + ", Сотая часть number2 = " + hundredNumber2);
+        if (hundredsUnitNumber1 == hundredsUnitNumber2 || tensUnitNumber1 == tensUnitNumber2 || onesUnitNumber1 == onesUnitNumber2) {
+            if (hundredsUnitNumber1 == hundredsUnitNumber2) {
+                System.out.println("Сотая часть number1 и number2 равны. number1 = " + hundredsUnitNumber1 + ", Сотая часть number2 = " + hundredsUnitNumber2);
             }
-            if (tensNumber1 == tensNumber2) {
-                System.out.println("Десятые части чисел равны. tensNumber1 = " + tensNumber1 + ", tensNumber2 = " + tensNumber2);
-            } else {
-                System.out.println("Десятые части чисел не равны. tensNumber1 = " + tensNumber1 + ", tensNumber2 = " + tensNumber2);
+            if (tensUnitNumber1 == tensUnitNumber2) {
+                System.out.println("Десятые части чисел равны. tensUnitNumber1 = " + tensUnitNumber1 + ", tensUnitNumber2 = " + tensUnitNumber2);
             }
-            if (secondsNumber1 == secondsNumber2) {
-                System.out.println("Разряды секунд в числах равны. secondsNumber1 = " + secondsNumber1 + ", secondsNumber2 = " + secondsNumber2);
-            } else {
-                System.out.println("Разряды секунд в числах не равны. secondsNumber1 = " + secondsNumber1 + ", secondsNumber2 = " + secondsNumber2);
+            if (onesUnitNumber1 == onesUnitNumber2) {
+                System.out.println("Разряды секунд в числах равны. onesUnitNumber1 = " + onesUnitNumber1 + ", onesUnitNumber2 = " + onesUnitNumber2);
             }
+        } else {
+            System.out.println("Все цифры в разрядах разные");
         }
 
         System.out.println("\n5. Определение символа по его коду");
@@ -104,15 +100,13 @@ public class IfElseStatementTheme {
 
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
         int contribution = 301_000;
-        double percent = 0.0;
-        int resultSum;
+        double percent = 0.1;
+        int resultSum = 0;
         System.out.println(contribution + " - Сумма вклада");
-        if (contribution > 300_000) {
-            percent = 0.1;
+        if (contribution < 100_000 && contribution > 0) {
+            percent = 0.05;
         } else if (contribution >= 100_000 && contribution <= 300_000) {
             percent = 0.07;
-        } else if (contribution < 100_000 && contribution > 0) {
-            percent = 0.05;
         }
         resultSum = (int) (contribution + (contribution * percent));
         System.out.println("Сумма вклада = " + contribution + "\nНачисленный % = " + percent + "\nИтоговая" +
@@ -120,43 +114,35 @@ public class IfElseStatementTheme {
 
         System.out.println("\n7. Определение оценки по предметам");
         int historyPercent = 59;
-        int historyGradeValue = 0;
+        int historyGrade = 2;
         int programmingPercent = 91;
-        int programmingGradeValue = 0;
+        int programmingGrade = 2;
         if (historyPercent > 91) {
-            historyGradeValue = 5;
+            historyGrade = 5;
         } else if (historyPercent > 73) {
-            historyGradeValue = 4;
+            historyGrade = 4;
         } else if (historyPercent > 60) {
-            historyPercent = 3;
-        } else {
-            historyGradeValue = 2;
+            historyGrade = 3;
         }
         if (programmingPercent > 91) {
-            programmingGradeValue = 5;
+            programmingGrade = 5;
         } else if (programmingPercent > 73) {
-            programmingGradeValue = 4;
+            programmingGrade = 4;
         } else if (programmingPercent > 60) {
-            programmingGradeValue = 3;
-        } else {
-            programmingGradeValue = 2;
+            programmingGrade = 3;
         }
-        System.out.println(historyGradeValue + " - История\n" + programmingGradeValue + " - Программирование");
-        double gradePointAverage = (historyGradeValue + programmingGradeValue) / 2.0;
-        double averagePercentage = (historyPercent + programmingPercent) / 2.0;
-        System.out.println(gradePointAverage + " - средний балл оценок по предметам\n" +
-                averagePercentage + " - средний % по предметам");
+        System.out.println(historyGrade + " - История\n" + programmingGrade + " - Программирование");
+        double averageGrade = (historyGrade + programmingGrade) / 2.0;
+        double averagePercent = (historyPercent + programmingPercent) / 2.0;
+        System.out.println(averageGrade + " - средний балл оценок по предметам\n" +
+                averagePercent + " - средний % по предметам");
 
         System.out.println("\n8. Расчет прибыли за год");
-        int rentalRoom = 5_000;
-        int monthSales = 13_000;
-        int costOfGoods = 9_000;
-        int annualProfit;
-        int costOfProduction = costOfGoods * 12;
-        int rentalExpenses = rentalRoom * 12;
-        int profit = monthSales * 12;
+        int rentalExpenses = 5_000 * 12;
+        int profit = 13_000 * 12;
+        int costOfProduction = 9_000 * 12;
         int generalExpenses = costOfProduction + rentalExpenses;
-        annualProfit = profit - generalExpenses;
+        int annualProfit = profit - generalExpenses;
         if (annualProfit > 0) {
             System.out.println("прибыль за год: +" + annualProfit);
         } else {
@@ -164,76 +150,53 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n9. Подсчет количества банкнот");
-        int money = 359;
-        int hundredsMoney = money / 100;
-        int tensMoney = (money / 10) % 10;
-        int onesMoney = money % 10;
-        int howHundredsMoney = 0;
-        int howTensMoney = 0;
-        int howOnesMoney = 0;
-        System.out.println(hundredsMoney + " " + tensMoney + " " + onesMoney); // 10 5 50 task
-        int hundreds = 10;
-        int tens = 5;
-        int ones = 8;
-        if (hundreds >= hundredsMoney) {
-            howHundredsMoney = hundredsMoney;
-            if (tens >= tensMoney) {
-                howTensMoney = tensMoney;
-                if (ones >= onesMoney) {
-                    howOnesMoney = onesMoney;
-                } else {
-                    System.out.println("Невозможно выдать сумму с такими номаналами");
-                }
-            } else if (tens + (ones / 10) >= tensMoney) {
-                howTensMoney = tensMoney;
-                if (ones >= onesMoney) {
-                    howOnesMoney = onesMoney;
-                } else {
-                    System.out.println("Невозможно выдать сумму с такими номиналами");
-                }
-            } else {
-                System.out.println("Невозможно выдать сумму с такими номиналами");
-            }
-        } else if ((tens / 10) + (hundreds) >= hundredsMoney) { // занимаем у десятых для сотен
-            howHundredsMoney = hundredsMoney;
-            tens -= (hundredsMoney - hundreds) * 10;
-            if (tens >= tensMoney) {
-                howTensMoney = tensMoney;
-                if (ones >= onesMoney) {
-                    howOnesMoney = onesMoney;
-                } else {
-                    System.out.println("Невозможно выдать сумму с такими номиналами");
-                }
-            } else if ((ones / 10) + (tens) >= tensMoney) {
-                howTensMoney = tensMoney;
-                ones -= (tensMoney - tens) * 10;
-            } else {
-                System.out.println("Невозможно выдать сумму с такими номиналами");
-            }
-        } else if ((tens / 10) + (hundreds) + (ones / 100) >= hundreds) { //занимаем у копеек
-            howHundredsMoney = hundredsMoney;
-            tens -= (hundredsMoney - hundreds) * 10;
-            ones -= (tensMoney - tens) * 100;
-            if (tens >= tensMoney) {
-                howTensMoney = tensMoney;
-                if (ones >= onesMoney) {
-                    howOnesMoney = onesMoney;
-                } else {
-                    System.out.println("Невозможно выдать сумму с такими номиналами");
-                }
-            } else if ((ones / 10) + (tens) >= tensMoney) {
-                howTensMoney = tensMoney;
-                ones -= (tensMoney - tens) * 10;
-            } else {
-                System.out.println("Невозможно выдать сумму с такими номиналами");
-            }
-        } else {
-            System.out.println("Невозможно выдать сумму с такими номиналами");
+        //int money = 359;
+        //int hundredsMoney = money / 100;
+        //int tensMoney = (money / 10) % 10;
+        //int onesMoney = money % 10;
+        //int howHundredsMoney = 0;
+        //int howTensMoney = 0;
+        //int howOnesMoney = 0;
+        //System.out.println(hundredsMoney + " " + tensMoney + " " + onesMoney); // 10 5 50 task
+        //int hundreds = 10;
+        //int tens = 5;
+        //int ones = 50;
+//
+        //System.out.println("Номиналы банкнот: " + hundreds + " - сотни, " + tens + " - десятки, " +
+        //        ones + " - единицы");
+        //System.out.println("Требуемое кол-во: " + hundredsMoney + " - сотни, " + tensMoney + " - десятки, " +
+        //        onesMoney + " - единицы");
+        //System.out.println("Выданная сумма: " + howHundredsMoney + howTensMoney + howOnesMoney);
+        int requiredSum = 567;
+        int banknoteHundreds = 10;
+        int banknoteTens = 5;
+        int banknoteOnes = 50;
+        int usedBanknoteHundreds = requiredSum / 100;
+        if (usedBanknoteHundreds > banknoteHundreds) {
+            usedBanknoteHundreds = banknoteHundreds;
         }
-        System.out.println("Номиналы банкнот: " + hundreds + " - сотни, " + tens + " - десятки, " +
-                ones + " - единицы");
-        System.out.println("Требуемое кол-во: " + hundredsMoney + " - сотни, " + tensMoney + " - десятки, " +
-                onesMoney + " - единицы");
-        System.out.println("Выданная сумма: " + howHundredsMoney + howTensMoney + howOnesMoney);
+        requiredSum -= usedBanknoteHundreds * 100;
+        banknoteHundreds -= usedBanknoteHundreds;
+        int usedBanknoteTens = requiredSum / 10;
+        if (usedBanknoteTens > banknoteTens) {
+            usedBanknoteTens = banknoteTens;
+        }
+        requiredSum -= usedBanknoteTens * 10;
+        banknoteTens -= usedBanknoteTens;
+        int usedBanknoteOnes = requiredSum;
+        if (usedBanknoteOnes > banknoteOnes) {
+            usedBanknoteOnes = banknoteOnes;
+        }
+        requiredSum -= usedBanknoteOnes;
+        banknoteOnes -= usedBanknoteOnes;
+        if (requiredSum > 0) {
+            System.out.println("Невозможно выдать необходимую сумму с такими номиналами");
+        } else {
+            System.out.println("Used banknotes:");
+            System.out.println("Banknote 100: " + usedBanknoteHundreds);
+            System.out.println("Banknote 10: " + usedBanknoteTens);
+            System.out.println("Banknote 1: " + usedBanknoteOnes);
+            System.out.println("Total amount: " + (usedBanknoteHundreds * 100 + usedBanknoteTens * 10 + usedBanknoteOnes));
+        }
     }
 }
