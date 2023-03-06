@@ -65,22 +65,22 @@ public class IfElseStatementTheme {
         System.out.println("\n4. Поиск одинаковых цифр в числах");
         int number3 = 232;
         int number4 = 242;
-        int hundredsDigit1 = number3 / 100;
-        int hundredsDigit2 = number4 / 100;
-        int tensDigit1 = (number3 / 10) % 10;
-        int tensDigit2 = (number4 / 10) % 10;
-        int onesDigit1 = number3 % 10;
-        int onesDigit2 = number4 % 10;
+        int hundredsNumber3 = number3 / 100;
+        int hundredsNumber4 = number4 / 100;
+        int tensNumber3 = (number3 / 10) % 10;
+        int tensNumber4 = (number4 / 10) % 10;
+        int onesNumber3 = number3 % 10;
+        int onesNumber4 = number4 % 10;
         System.out.println("number1 = " + number3 + ", number2 = " + number4);
-        if (hundredsDigit1 == hundredsDigit2 || tensDigit1 == tensDigit2 || onesDigit1 == onesDigit2) {
-            if (hundredsDigit1 == hundredsDigit2) {
-                System.out.println("Сотая часть number3 и number4 равны. number3 = " + hundredsDigit1 + ", Сотая часть number4 = " + hundredsDigit2);
+        if (hundredsNumber3 == hundredsNumber4 || tensNumber3 == tensNumber4 || onesNumber3 == onesNumber4) {
+            if (hundredsNumber3 == hundredsNumber4) {
+                System.out.println("Сотая часть number3 и number4 равны. number3 = " + hundredsNumber3 + ", Сотая часть number4 = " + hundredsNumber4);
             }
-            if (tensDigit1 == tensDigit2) {
-                System.out.println("Десятые части чисел равны. tensDigit1 = " + tensDigit1 + ", tensDigit2 = " + tensDigit2);
+            if (tensNumber3 == tensNumber4) {
+                System.out.println("Десятые части чисел равны. tensNumber3 = " + tensNumber3 + ", tensNumber4 = " + tensNumber4);
             }
-            if (onesDigit1 == onesDigit2) {
-                System.out.println("Разряды секунд в числах равны. onesDigit1 = " + onesDigit1 + ", onesDigit2 = " + onesDigit2);
+            if (onesNumber3 == onesNumber4) {
+                System.out.println("Разряды секунд в числах равны. onesNumber3 = " + onesNumber3 + ", onesNumber4 = " + onesNumber4);
             }
         } else {
             System.out.println("Все цифры в разрядах разные");
@@ -99,18 +99,15 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
-        int contribution = 301_000;
+        int contribution = 99_000;
         double percent = 0.1;
-        int resultSum = (int) (contribution + (contribution * percent));
-        System.out.println(contribution + " - Сумма вклада");
         if (contribution < 100_000 && contribution > 0) {
             percent = 0.05;
-            resultSum = (int) (contribution + (contribution * percent));
         } else if (contribution >= 100_000 && contribution <= 300_000) {
             percent = 0.07;
-            resultSum = (int) (contribution + (contribution * percent));
         }
-        System.out.println("Сумма вклада = " + contribution + "\nНачисленный % = " + percent + "\nИтоговая" +
+        int resultSum = (int) (contribution + (contribution * percent));
+        System.out.println("Сумма вклада = " + contribution + "\nНачисленный % = " + percent + "\nИтоговая " +
                 "сумма с % = " + resultSum);
 
         System.out.println("\n7. Определение оценки по предметам");
@@ -139,7 +136,10 @@ public class IfElseStatementTheme {
                 averagePercent + " - средний % по предметам");
 
         System.out.println("\n8. Расчет прибыли за год");
-        int annualProfit = (13_000 * 12) - (9_000 + 5_000) * 12;
+        int rentalRoom = 5_000;
+        int monthSales = 13_000;
+        int costOfGoods = 9_000;
+        int annualProfit = 12 * (monthSales) - (rentalRoom + costOfGoods) * 12;
         if (annualProfit > 0) {
             System.out.println("прибыль за год: +" + annualProfit);
         } else {
