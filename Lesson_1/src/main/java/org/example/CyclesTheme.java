@@ -3,28 +3,28 @@ package org.example;
 public class CyclesTheme {
     public static void main(String[] args) {
         System.out.println("1. Подсчет суммы четных и нечетных чисел");
-        int lesserValue = -10;
-        int sumEvenNumber = lesserValue;
-        int sumOddNumber = lesserValue;
+        int counter = -10;
+        int sumEvenNumber = counter;
+        int sumOddNumber = counter;
         boolean evenOrOdd = true;
         do {
             if (evenOrOdd) {
-                if (lesserValue % 2 == 0) {
-                    sumEvenNumber = lesserValue;
+                if (counter % 2 == 0) {
+                    sumEvenNumber = counter;
                     sumOddNumber = 0;
                 } else {
                     sumEvenNumber = 0;
-                    sumOddNumber = lesserValue;
+                    sumOddNumber = counter;
                 }
                 evenOrOdd = false;
             }
-            lesserValue++;
-            if (lesserValue % 2 == 0) {
-                sumEvenNumber += lesserValue;
+            counter++;
+            if (counter % 2 == 0) {
+                sumEvenNumber += counter;
             } else {
-                sumOddNumber += lesserValue;
+                sumOddNumber += counter;
             }
-        } while (lesserValue <= 20);
+        } while (counter <= 20);
         System.out.println("В промежутке от [-10,21] сумма четных чисел = " + sumEvenNumber + ", а нечетных = " + sumOddNumber);
 
         System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
@@ -63,15 +63,15 @@ public class CyclesTheme {
         System.out.println("\nСумма цифр: " + sum);
 
         System.out.println("4. Вывод чисел на консоль в несколько строк");
-        int counter = 0;
+        int counter1 = 0;
         for (int i = 1; i < 24; i += 2) {
-            if (counter % 5 == 0) {
+            if (counter1 % 5 == 0) {
                 System.out.println();
             }
             System.out.printf("%3d", i);
-            counter++;
+            counter1++;
         }
-        int zeros = (5 - counter % 5) % 5;
+        int zeros = (5 - counter1 % 5) % 5;
         for (int i = 0; i < zeros; i++) {
             System.out.printf("%3d", 0);
         }
