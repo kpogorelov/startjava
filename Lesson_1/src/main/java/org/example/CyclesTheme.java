@@ -49,6 +49,7 @@ public class CyclesTheme {
             sum += number4 % 10;
         }
         System.out.println("\nСумма цифр: " + sum);
+        System.out.println();
 
         System.out.println("4. Вывод чисел на консоль в несколько строк");
         int counter1 = 0;
@@ -64,7 +65,7 @@ public class CyclesTheme {
             System.out.printf("%3d", 0);
         }
 
-        System.out.println("\n5. Проверка количества двоек на четность/нечетность");
+        System.out.println("\n\n5. Проверка количества двоек на четность/нечетность");
         int randomNumber = 3222594;
         int count = 0;
         int copyRandomNumber = randomNumber;
@@ -139,9 +140,9 @@ public class CyclesTheme {
             temps /= 10;
         }
         if (number5 == reversed) {
-            System.out.println("Число является палиндромом");
+            System.out.println("Число является палиндромом\n");
         } else {
-            System.out.println("Число не является палиндромом");
+            System.out.println("Число не является палиндромом\n");
         }
 
         System.out.println("9. Определение, является ли число счастливым");
@@ -168,7 +169,7 @@ public class CyclesTheme {
             System.out.println(" - несчастливое");
         }
 
-        System.out.println("10. Вывод таблицы умножения Пифагора");
+        System.out.println("\n10. Вывод таблицы умножения Пифагора");
         for (int i = 1; i < 10; i++) {
             if (i == 1) {
                 System.out.print("   ");
