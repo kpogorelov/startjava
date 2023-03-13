@@ -41,17 +41,16 @@ public class CyclesTheme {
 
         System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр");
         int number4 = 1234;
-        int sum = number4 % 10;
+        int sum = 0;
         while (number4 > 0) {
             int remainder = number4 % 10;
             System.out.print(remainder);
             number4 /= 10;
-            sum += number4 % 10;
+            sum += remainder;
         }
         System.out.println("\nСумма цифр: " + sum);
-        System.out.println();
 
-        System.out.println("4. Вывод чисел на консоль в несколько строк");
+        System.out.println("\n4. Вывод чисел на консоль в несколько строк");
         int counter1 = 0;
         for (int i = 1; i < 24; i += 2) {
             if (counter1 % 5 == 0) {
@@ -133,11 +132,11 @@ public class CyclesTheme {
 
         System.out.println("\n\n8. Проверка, является ли число палиндромом");
         int number5 = 1234321;
-        int temps = number5;
+        int copyNumber5 = number5;
         int reversed = 0;
-        while (temps != 0) {
-            reversed = reversed * 10 + temps % 10;
-            temps /= 10;
+        while (copyNumber5 > 0) {
+            reversed = reversed * 10 + copyNumber5 % 10;
+            copyNumber5 /= 10;
         }
         if (number5 == reversed) {
             System.out.println("Число является палиндромом\n");
@@ -150,7 +149,6 @@ public class CyclesTheme {
         System.out.print("Число " + happyNumber);
         int rightSum = 0;
         int leftSum = 0;
-        //int copyHappyNumber = happyNumber;
         int happyCounter = 6;
         while (happyCounter > 0) {
             if (happyCounter > 3) {
@@ -173,15 +171,15 @@ public class CyclesTheme {
         for (int i = 1; i < 10; i++) {
             if (i == 1) {
                 System.out.print("   ");
-                for (int k = 2; k < 10; k++) {
-                    System.out.printf("%3d", i * k);
+                for (int j = 2; j < 10; j++) {
+                    System.out.printf("%3d", i * j);
                 }
             }
-            for (int j = 1; j < 10; j++) {
+            for (int k = 1; k < 10; k++) {
                 if (i == 1) {
                     continue;
                 }
-                System.out.printf("%3d", i * j);
+                System.out.printf("%3d", i * k);
             }
             System.out.println();
         }
