@@ -2,9 +2,9 @@ package org.example;
 
 public class Calculator {
     public static void main(String[] args) {
-        int firstDigit = 8;
+        int firstDigit = 100;
         int secondDigit = 5;
-        char operationChar = '+';
+        char operationChar = '*';
         if (operationChar == '+' || operationChar == '-' || operationChar == '*' || operationChar == '/'
                 || operationChar == '^' || operationChar == '%') {
             if (operationChar == '+') {
