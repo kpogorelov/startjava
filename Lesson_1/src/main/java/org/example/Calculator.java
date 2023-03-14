@@ -27,7 +27,7 @@ public class Calculator {
                 System.out.println(firstDigit);
             }
         } else {
-            System.out.println("Неизвестный оператор поля operationChar");
+            System.out.println("Неизвестный оператор для поля operationChar");
         }
     }
 }
