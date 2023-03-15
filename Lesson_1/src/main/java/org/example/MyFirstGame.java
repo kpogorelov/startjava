@@ -3,20 +3,19 @@ package org.example;
 public class MyFirstGame {
     public static void main(String[] args) {
         int hiddenNumber = 100;
-        int myAnswerNumber = 110;
+        int playerNumber = 110;
         if (hiddenNumber > 0 && hiddenNumber <= 100) {
-            while (hiddenNumber != myAnswerNumber) {
-                if (hiddenNumber > myAnswerNumber) {
-                    System.out.println("Число " + myAnswerNumber + " меньше чем то что загадал компьютер");
-                    myAnswerNumber++;
-
+            while (hiddenNumber != playerNumber) {
+                if (hiddenNumber > playerNumber) {
+                    System.out.println("Число " + playerNumber + " меньше чем то что загадал компьютер");
+                    playerNumber++;
                 } else {
-                    System.out.println("Число " + myAnswerNumber + " больше чем то что загадал компьютер");
-                    myAnswerNumber--;
+                    System.out.println("Число " + playerNumber + " больше чем то что загадал компьютер");
+                    playerNumber--;
                 }
-            }
-            if (myAnswerNumber == hiddenNumber) {
-                System.out.println("Вы победили! Загаданное число: " + hiddenNumber);
+                if (playerNumber == hiddenNumber) {
+                    System.out.println("Вы победили! Загаданное число: " + hiddenNumber);
+                }
             }
         }
     }

@@ -2,37 +2,29 @@ package org.example;
 
 public class Calculator {
     public static void main(String[] args) {
-        int firstDigit = 100;
-        int secondDigit = 5;
-        char operationChar = '*';
-        if (operationChar == '+' || operationChar == '-' || operationChar == '*' || operationChar == '/'
-                || operationChar == '^' || operationChar == '%') {
-            if (operationChar == '+') {
-                System.out.println(firstDigit + " " + operationChar + " " + secondDigit + " = " +
-                        "" + (firstDigit + secondDigit));
-            } else if (operationChar == '-') {
-                System.out.println(firstDigit + " " + operationChar + " " + secondDigit + " = " +
-                        "" + (firstDigit - secondDigit));
-            } else if (operationChar == '*') {
-                System.out.println(firstDigit + " " + operationChar + " " + secondDigit + " = " +
-                        "" + (firstDigit * secondDigit));
-            } else if (operationChar == '/') {
-                System.out.println(firstDigit + " " + operationChar + " " + secondDigit + " = " +
-                        "" + (firstDigit / secondDigit));
-            } else if (operationChar == '%') {
-                System.out.println(firstDigit + " " + operationChar + " " + secondDigit + " = " +
-                        "" + (firstDigit % secondDigit));
-            } else {
-                System.out.print(firstDigit + " " + operationChar + " " + secondDigit + " = ");
-                int copyFirstDigit = firstDigit;
-                while (secondDigit - 1 > 0) {
-                    firstDigit *= copyFirstDigit;
-                    secondDigit--;
-                }
-                System.out.println(firstDigit);
+        int number1 = 2;
+        int number2 = 3;
+        char mathSign = '^';
+        int result = 0;
+        if (mathSign == '+') {
+            result = number1 + number2;
+        } else if (mathSign == '-') {
+            result = number1 - number2;
+        } else if (mathSign == '*') {
+            result = number1 * number2;
+        } else if (mathSign == '/') {
+            result = number1 / number2;
+        } else if (mathSign == '%') {
+            result = number1 % number2;
+        } else if (mathSign == '^') {
+            result = number1;
+            for (int i = number2 - 1; i > 0; i--) {
+                result = result * number1;
             }
         } else {
-            System.out.println("Неизвестный оператор для поля operationChar");
+            System.out.println(mathSign + " - такая операция не поддерживается");
         }
+        System.out.println(number1 + " " + mathSign + " " + number2 + " = " +
+                "" + result);
     }
 }
