@@ -4,8 +4,9 @@ public class Calculator {
     public static void main(String[] args) {
         int number1 = 2;
         int number2 = 3;
-        char mathSign = '^';
+        char mathSign = '*';
         int result = 0;
+        boolean correctChar = true;
         if (mathSign == '+') {
             result = number1 + number2;
         } else if (mathSign == '-') {
@@ -23,8 +24,11 @@ public class Calculator {
             }
         } else {
             System.out.println(mathSign + " - такая операция не поддерживается");
+            correctChar = false;
         }
-        System.out.println(number1 + " " + mathSign + " " + number2 + " = " +
-                "" + result);
+        if (correctChar) {
+            System.out.println(number1 + " " + mathSign + " " + number2 + " = " +
+                    "" + result);
+        }
     }
 }
