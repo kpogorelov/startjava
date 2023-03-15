@@ -4,6 +4,7 @@ public class MyFirstGame {
     public static void main(String[] args) {
         int hiddenNumber = 100;
         int playerNumber = 110;
+        boolean playerWin = true;
         if (hiddenNumber > 0 && hiddenNumber <= 100) {
             while (hiddenNumber != playerNumber) {
                 if (hiddenNumber > playerNumber) {
@@ -13,10 +14,8 @@ public class MyFirstGame {
                     System.out.println("Число " + playerNumber + " больше чем то что загадал компьютер");
                     playerNumber--;
                 }
-                if (playerNumber == hiddenNumber) {
-                    System.out.println("Вы победили! Загаданное число: " + hiddenNumber);
-                }
             }
+            System.out.println("Вы победили! Загаданное число: " + hiddenNumber);
         }
     }
 }
