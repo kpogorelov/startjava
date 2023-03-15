@@ -8,15 +8,20 @@ public class Calculator {
         if (operationChar == '+' || operationChar == '-' || operationChar == '*' || operationChar == '/'
                 || operationChar == '^' || operationChar == '%') {
             if (operationChar == '+') {
-                System.out.println(firstDigit + " " + operationChar + " " + secondDigit + " = " + (firstDigit + secondDigit));
+                System.out.println(firstDigit + " " + operationChar + " " + secondDigit + " = " +
+                        "" + (firstDigit + secondDigit));
             } else if (operationChar == '-') {
-                System.out.println(firstDigit + " " + operationChar + " " + secondDigit + " = " + (firstDigit - secondDigit));
+                System.out.println(firstDigit + " " + operationChar + " " + secondDigit + " = " +
+                        "" + (firstDigit - secondDigit));
             } else if (operationChar == '*') {
-                System.out.println(firstDigit + " " + operationChar + " " + secondDigit + " = " + (firstDigit * secondDigit));
+                System.out.println(firstDigit + " " + operationChar + " " + secondDigit + " = " +
+                        "" + (firstDigit * secondDigit));
             } else if (operationChar == '/') {
-                System.out.println(firstDigit + " " + operationChar + " " + secondDigit + " = " + (firstDigit / secondDigit));
+                System.out.println(firstDigit + " " + operationChar + " " + secondDigit + " = " +
+                        "" + (firstDigit / secondDigit));
             } else if (operationChar == '%') {
-                System.out.println(firstDigit + " " + operationChar + " " + secondDigit + " = " + (firstDigit % secondDigit));
+                System.out.println(firstDigit + " " + operationChar + " " + secondDigit + " = " +
+                        "" + (firstDigit % secondDigit));
             } else {
                 System.out.print(firstDigit + " " + operationChar + " " + secondDigit + " = ");
                 int copyFirstDigit = firstDigit;
