@@ -4,7 +4,6 @@ public class MyFirstGame {
     public static void main(String[] args) {
         int hiddenNumber = 100;
         int playerNumber = 110;
-        boolean playerWin = true;
         if (hiddenNumber > 0 && hiddenNumber <= 100) {
             while (hiddenNumber != playerNumber) {
                 if (hiddenNumber > playerNumber) {
