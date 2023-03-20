@@ -11,23 +11,15 @@ public class JaegerTest {
         gipsyAvenger.setStrength(4);
         System.out.println(gipsyAvenger);
         gipsyAvenger.attackKaiju();
-        gipsyAvenger.cdSkills();
+        gipsyAvenger.isCdSkills();
 
-        Jaeger crimsonTyphoon = new Jaeger(
-                "crimsonTyphoon",
-                1.722f,
-                76.2f,
-                9,
-                6,
+        Jaeger crimsonTyphoon = new Jaeger("crimsonTyphoon", 1.722f, 76.2f, 9, 6,
                 8);
         System.out.println(crimsonTyphoon);
         crimsonTyphoon.attackKaiju();
-        crimsonTyphoon.cdSkills();
+        crimsonTyphoon.isCdSkills();
         crimsonTyphoon.setSpeed(5);
-        crimsonTyphoon.cdSkills();
-
-        crimsonTyphoon.whichJaegerIsStronger(gipsyAvenger);
-        gipsyAvenger.whichJaegerIsStronger(crimsonTyphoon);
+        crimsonTyphoon.isCdSkills();
 
         crimsonTyphoon.setModelName(null);
         System.out.println(crimsonTyphoon.getModelName());

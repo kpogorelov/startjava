@@ -8,8 +8,7 @@ public class Jaeger {
     private int armor;
     private int strength;
 
-    public Jaeger() {
-    }
+    public Jaeger() {}
 
     public Jaeger(String modelName, float weight, float height, int speed, int armor, int strength) {
         this.modelName = modelName;
@@ -18,18 +17,6 @@ public class Jaeger {
         this.speed = speed;
         this.armor = armor;
         this.strength = strength;
-    }
-
-    @Override
-    public String toString() {
-        return "Jaeger{" +
-                "modelName='" + modelName + '\'' +
-                ", weight=" + weight +
-                ", height=" + height +
-                ", speed=" + speed +
-                ", armor=" + armor +
-                ", strength=" + strength +
-                '}';
     }
 
     public String getModelName() {
@@ -86,23 +73,20 @@ public class Jaeger {
         System.out.println(modelName + " атакует кайздзю");
     }
 
-    public boolean cdSkills() {
+    public boolean isCdSkills() {
         System.out.println(modelName + " перезаряжает способности." + " Его скорость снизилась: была = " +
                 +speed + ", стала = " + (speed - 1));
         return true;
     }
-
-    public void whichJaegerIsStronger(Jaeger jaeger) {
-        int jaegerOneParam = this.armor + this.speed + this.strength;
-        int jaegerTwoParam = jaeger.armor + jaeger.speed + jaeger.strength;
-        if (jaegerOneParam > jaegerTwoParam) {
-            System.out.println(this.modelName + " сильнее по характеристикам чем " + jaeger.modelName);
-        } else {
-            System.out.println(jaeger.modelName + " сильнее по характеристикам чем " + this.modelName);
-        }
-        System.out.println(this.modelName + " общая сумма характеристик: " + jaegerOneParam);
-        System.out.println(jaeger.modelName + " общая сумма характеристик: " + jaegerTwoParam);
+    @Override
+    public String toString() {
+        return "Jaeger{" +
+                "modelName='" + modelName + '\'' +
+                ", weight=" + weight +
+                ", height=" + height +
+                ", speed=" + speed +
+                ", armor=" + armor +
+                ", strength=" + strength +
+                '}';
     }
-
-
 }

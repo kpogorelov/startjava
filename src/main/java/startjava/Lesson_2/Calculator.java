@@ -2,72 +2,50 @@ package startjava.Lesson_2;
 
 public class Calculator {
     private char mathSign;
-    private int firstNumber;
-    private int secondNumber;
+    private int number1;
+    private int number2;
     private int result;
-
-    public int getResult() {
-        return result;
-    }
-
-    public void setResult(int result) {
-        this.result = result;
-    }
-
-    public char getMathSign() {
-        return mathSign;
-    }
 
     public void setMathSign(char mathSign) {
         this.mathSign = mathSign;
     }
 
-    public int getFirstNumber() {
-        return firstNumber;
+    public void setNumber1(int firstNumber) {
+        this.number1 = firstNumber;
     }
 
-    public void setFirstNumber(int firstNumber) {
-        this.firstNumber = firstNumber;
+    public void setNumber2(int secondNumber) {
+        this.number2 = secondNumber;
     }
 
-    public int getSecondNumber() {
-        return secondNumber;
-    }
-
-    public void setSecondNumber(int secondNumber) {
-        this.secondNumber = secondNumber;
-    }
-
-    public void usedCalculator() {
+    public void calculate() {
         boolean correctMathSign = true;
         switch (mathSign) {
             case '+':
-                result = firstNumber + secondNumber;
+                result = number1 + number2;
                 break;
             case '-':
-                result = firstNumber - secondNumber;
+                result = number1 - number2;
                 break;
             case '*':
-                result = firstNumber * secondNumber;
+                result = number1 * number2;
                 break;
             case '/':
-                result = firstNumber / secondNumber;
+                result = number1 / number2;
                 break;
             case '%':
-                result = firstNumber % secondNumber;
+                result = number1 % number2;
                 break;
             case '^':
                 result = 1;
-                for (int i = 0; i < secondNumber; i++) {
-                    result = result * firstNumber;
+                for (int i = 0; i < number2; i++) {
+                    result = result * number1;
                 }
                 break;
             default:
                 System.out.println("Введенная математическая операция не поддерживается");
-                correctMathSign = false;
+                return;
         }
-        if (correctMathSign) {
-            System.out.println(firstNumber + " " + mathSign + " " + secondNumber + " = " + result);
-        }
+            System.out.println(number1 + " " + mathSign + " " + number2 + " = " + result);
     }
 }
