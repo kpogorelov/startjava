@@ -78,6 +78,7 @@ public class Jaeger {
                 +speed + ", стала = " + (speed - 1));
         return true;
     }
+
     @Override
     public String toString() {
         return "Jaeger{" +

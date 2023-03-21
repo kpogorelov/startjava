@@ -4,7 +4,6 @@ public class Calculator {
     private char mathSign;
     private int number1;
     private int number2;
-    private int result;
 
     public void setMathSign(char mathSign) {
         this.mathSign = mathSign;
@@ -19,7 +18,7 @@ public class Calculator {
     }
 
     public void calculate() {
-        boolean correctMathSign = true;
+        int result = 0;
         switch (mathSign) {
             case '+':
                 result = number1 + number2;
@@ -46,6 +45,6 @@ public class Calculator {
                 System.out.println("Введенная математическая операция не поддерживается");
                 return;
         }
-            System.out.println(number1 + " " + mathSign + " " + number2 + " = " + result);
+        System.out.println(number1 + " " + mathSign + " " + number2 + " = " + result);
     }
 }

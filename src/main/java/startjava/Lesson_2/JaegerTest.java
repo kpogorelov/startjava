@@ -13,8 +13,7 @@ public class JaegerTest {
         gipsyAvenger.attackKaiju();
         gipsyAvenger.isCdSkills();
 
-        Jaeger crimsonTyphoon = new Jaeger("crimsonTyphoon", 1.722f, 76.2f, 9, 6,
-                8);
+        Jaeger crimsonTyphoon = new Jaeger("crimsonTyphoon", 1.722f, 76.2f, 9, 6, 8);
         System.out.println(crimsonTyphoon);
         crimsonTyphoon.attackKaiju();
         crimsonTyphoon.isCdSkills();
