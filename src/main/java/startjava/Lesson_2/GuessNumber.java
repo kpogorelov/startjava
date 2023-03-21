@@ -3,7 +3,7 @@ package startjava.Lesson_2;
 import java.util.Scanner;
 
 public class GuessNumber {
-    private static int computerNumber = (int) (1 + Math.random() * 100);
+    private int computerNumber = (int) (1 + Math.random() * 100);
     private Player player1;
     private Player player2;
 
@@ -26,25 +26,23 @@ public class GuessNumber {
 
     public void startTheGame() {
         while (true) {
-            if (!GuessNumber.checkPlayerNumber(player1) || !GuessNumber.checkPlayerNumber(player2)) {
+            if (!checkPlayerNumber(player1) || !checkPlayerNumber(player2)) {
                 break;
             }
         }
     }
 
-    public static boolean checkPlayerNumber(Player player) {
+    public boolean checkPlayerNumber(Player player) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println(player.getName() + " Введите ваше число");
+        System.out.println(player.getName() + " введите число");
         player.setMyNumber(scanner.nextInt());
         scanner.nextLine();
         if (player.getMyNumber() == computerNumber) {
             System.out.println(player.getName() + " вы победили!!!");
             return false;
-        } else if (player.getMyNumber() > computerNumber) {
-            System.out.println("Вы ввели число больше");
-        } else {
-            System.out.println("Вы ввели число меньше");
         }
+        System.out.println(player.getMyNumber() > computerNumber ? "вы ввели число больше чем загадал компьютер" :
+                "вы ввели число меньше чем загадал компьютер");
         return true;
     }
 }
