@@ -26,13 +26,13 @@ public class GuessNumber {
 
     public void startTheGame() {
         while (true) {
-            if (!GuessNumber.iterationAndCheckPlayer(player1) || !GuessNumber.iterationAndCheckPlayer(player2)) {
+            if (!GuessNumber.checkPlayerNumber(player1) || !GuessNumber.checkPlayerNumber(player2)) {
                 break;
             }
         }
     }
 
-    public static boolean iterationAndCheckPlayer(Player player) {
+    public static boolean checkPlayerNumber(Player player) {
         Scanner scanner = new Scanner(System.in);
         System.out.println(player.getName() + " Введите ваше число");
         player.setMyNumber(scanner.nextInt());
