@@ -12,18 +12,6 @@ public class GuessNumber {
         this.player2 = player2;
     }
 
-    public int getComputerNumber() {
-        return computerNumber;
-    }
-
-    public Player getPlayer1() {
-        return player1;
-    }
-
-    public Player getPlayer2() {
-        return player2;
-    }
-
     public void startTheGame() {
         while (true) {
             if (!checkPlayerNumber(player1) || !checkPlayerNumber(player2)) {
