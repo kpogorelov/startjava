@@ -32,7 +32,7 @@ public class GuessNumber {
         }
     }
 
-    public boolean checkPlayerNumber(Player player) {
+    private boolean checkPlayerNumber(Player player) {
         Scanner scanner = new Scanner(System.in);
         System.out.println(player.getName() + " введите число");
         player.setMyNumber(scanner.nextInt());
