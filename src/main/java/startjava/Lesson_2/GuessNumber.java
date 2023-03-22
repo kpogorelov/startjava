@@ -3,35 +3,35 @@ package startjava.Lesson_2;
 import java.util.Scanner;
 
 public class GuessNumber {
-    private int computerNumber = (int) (1 + Math.random() * 100);
+    private int computerNumber;
     private Player player1;
     private Player player2;
 
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
+        computerNumber = (int) (1 + Math.random() * 100);
     }
 
-    public void startTheGame() {
+    public void start() {
+        Scanner scanner = new Scanner(System.in);
         while (true) {
-            if (!checkPlayerNumber(player1) || !checkPlayerNumber(player2)) {
+            if (isGuessed(player1, scanner) || isGuessed(player2, scanner)) {
                 break;
             }
         }
     }
 
-    private boolean checkPlayerNumber(Player player) {
-        Scanner scanner = new Scanner(System.in);
+    private boolean isGuessed(Player player, Scanner scanner) {
         System.out.println(player.getName() + " введите число");
-        player.setMyNumber(scanner.nextInt());
+        player.setNumber(scanner.nextInt());
         scanner.nextLine();
-        if (player.getMyNumber() == computerNumber) {
+        if (player.getNumber() == computerNumber) {
             System.out.println(player.getName() + " вы победили!!!");
-            return false;
+            return true;
         }
-        System.out.println(player.getMyNumber() > computerNumber ? "вы ввели число больше чем загадал компьютер" :
-                "вы ввели число меньше чем загадал компьютер");
-        return true;
+        System.out.println("Вы ввели число" + (player.getNumber() > computerNumber ? " больше" : " меньше") +
+                " чем загадал компьютер");
+        return false;
     }
 }
-
