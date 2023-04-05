@@ -1,7 +1,5 @@
 package startjava.lesson_2_3_4;
-
 import java.util.Arrays;
-
 public class ArrayTheme {
     public static void main(String[] args) {
         System.out.println("1. Реверс значений массива");
@@ -98,6 +96,21 @@ public class ArrayTheme {
             }
         }
         System.out.println(Arrays.toString(numbers3));
+        for (int i = 0; i < numbers3.length; i++) {
+            if (i <= 9) {
+                System.out.printf("%3d", numbers3[i]);
+                if (i == 9) {
+                    System.out.println();
+                }
+            } else if (i > 9 && i <= 19) {
+                System.out.printf("%3d", numbers3[i]);
+                if (i == 19) {
+                    System.out.println();
+                }
+            } else {
+                System.out.printf("%3d", numbers3[i]);
+            }
+        }
     }
 
     private static void printArray(double[] array, int index) {
