@@ -1,4 +1,4 @@
-package startjava.lesson_2_3.calculator;
+package startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
     private char mathSign;
