@@ -1,5 +1,7 @@
 package startjava.lesson_2_3_4;
+
 import java.util.Arrays;
+
 public class ArrayTheme {
     public static void main(String[] args) {
         System.out.println("1. Реверс значений массива");
@@ -111,6 +113,35 @@ public class ArrayTheme {
                 System.out.printf("%3d", numbers3[i]);
             }
         }
+
+        System.out.println("6. Копирование не пустых строк");
+        String[] letters1 = {"FF", "G", ""};
+        int counter2 = 0;
+        int length = 0;
+        int indexSrc = 0;
+        int indexCopy = 0;
+        for (int i = 0; i < letters1.length; i++) {
+            if (letters1[i].isEmpty() || letters1[i].contains(" ")) {
+                counter2++;
+            }
+        }
+        String[] arrayCopy = new String[letters1.length - counter2];
+        for (int i = 0; i < letters1.length; i++) {
+            if (!letters1[i].isEmpty() && !letters1[i].contains(" ")) {
+                indexSrc = i - length;
+                length++;
+                for (int j = 0; j < arrayCopy.length; j++) {
+                    if (arrayCopy[j] == null) {
+                        indexCopy = j;
+                        break;
+                    }
+                }
+            } else {
+                System.arraycopy(letters1, indexSrc, arrayCopy, indexCopy, length);
+                length = 0;
+            }
+        }
+        System.out.println(Arrays.toString(arrayCopy));
     }
 
     private static void printArray(double[] array, int index) {
