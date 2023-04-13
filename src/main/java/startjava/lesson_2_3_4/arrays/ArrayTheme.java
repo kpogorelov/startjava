@@ -10,10 +10,11 @@ public class ArrayTheme {
         int length = numbers.length - 1;
         System.out.println("Изначальное структура массива: ");
         System.out.print(Arrays.toString(numbers));
-        for (int i = 0; i < length / 2; i++) {
+        for (int i = 0; i < length; i++) {
             int temp = numbers[i];
-            numbers[i] = numbers[length - i];
-            numbers[length - i] = temp;
+            numbers[i] = numbers[length];
+            numbers[length] = temp;
+            length--;
         }
         System.out.println("\nСтруктура массива после реверса: ");
         System.out.print(Arrays.toString(numbers));
@@ -22,36 +23,39 @@ public class ArrayTheme {
         int[] multipliers = new int[10];
         length = multipliers.length;
         int result = 1;
-        int indexes = length - 2;//предпоследний индекс
+        int penultimateIndex = length - 2;
         for (int i = 0; i < length; i++) {
             multipliers[i] = i;
             if (i > 0 && i < 9) {
                 result *= i;
-                System.out.print((i != indexes) ? multipliers[i] + " * " : multipliers[i] + " = " + result + "\n");
+                System.out.print(i + ((i != penultimateIndex) ? " * " : " = " + result));
             } else {
                 System.out.println(i + " индекс не участвует в вычислениях");
+            }
+            if (i == penultimateIndex) {
+                System.out.println();
             }
         }
 
         System.out.println("\n3. Удаление элементов массива");
         double[] numbers2 = new double[15];
-        length = numbers2.length;
-        int index = (length - 1) / 2;
-        int deletedCount = 0;
         Random random = new Random();
+        length = numbers2.length;
         for (int i = 0; i < length; i++) {
             numbers2[i] = random.nextDouble();
         }
+        int middleIndex = (length - 1) / 2;
+        int deletedCount = 0;
         System.out.println("Массив до обнуления ячеек: ");
-        printArray(numbers2, index);
+        print(numbers2, middleIndex);
         for (int i = 0; i < length; i++) {
-            if (numbers2[i] > numbers2[index]) {
+            if (numbers2[i] > numbers2[middleIndex]) {
                 numbers2[i] = 0.0;
                 deletedCount++;
             }
         }
         System.out.println("\nМассив после обнуления ячеек: ");
-        printArray(numbers2, index);
+        print(numbers2, middleIndex);
         System.out.println("Количество обнуленных ячеек: " + deletedCount);
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
@@ -107,7 +111,8 @@ public class ArrayTheme {
         }
 
         System.out.println("\n6. Копирование не пустых строк");
-        String[] srcStrings = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
+        String[] srcStrings = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", "КК", "  ", "", "RW"};
+        System.out.println("Изначальный массив: " + Arrays.toString(srcStrings));
         length = srcStrings.length;
         int emptyElements = 0;
         int lenCopyElements = 0;
@@ -132,7 +137,7 @@ public class ArrayTheme {
                             break;
                         }
                     }
-                    if (i == length - 1 && !srcStrings[i].isBlank()) {
+                    if (i == length - 1) {
                         System.arraycopy(srcStrings, indexSrc, destStrings, indexCopy, lenCopyElements);
                         break;
                     }
@@ -143,10 +148,10 @@ public class ArrayTheme {
                 break;
             }
         }
-        System.out.println(Arrays.toString(destStrings));
+        System.out.println("Массив без пустых строк и пробелов: " + Arrays.toString(destStrings));
     }
 
-    private static void printArray(double[] array, int index) {
+    private static void print(double[] array, int index) {
         for (int i = 0; i < array.length; i++) {
             if (i <= index) {
                 System.out.printf("%,.3f ", array[i]);
