@@ -4,21 +4,17 @@ public class Calculator {
     private char mathSign;
     private int number1;
     private int number2;
+    private String[] mathExpression = new String[3];
 
-    public void setMathSign(char mathSign) {
-        this.mathSign = mathSign;
+    public void setMathExpression(String[] mathExpression) {
+        this.mathExpression = mathExpression;
+        number1 = Integer.parseInt(mathExpression[0]);
+        number2 = Integer.parseInt(mathExpression[2]);
+        mathSign = mathExpression[1].charAt(0);
     }
 
-    public void setNumber1(int firstNumber) {
-        this.number1 = firstNumber;
-    }
-
-    public void setNumber2(int secondNumber) {
-        this.number2 = secondNumber;
-    }
-
-    public void calculate() {
-        int result = 0;
+    public double calculate() {
+        double result = 0;
         switch (mathSign) {
             case '+':
                 result = number1 + number2;
@@ -30,21 +26,18 @@ public class Calculator {
                 result = number1 * number2;
                 break;
             case '/':
-                result = number1 / number2;
+                result = (double) number1 / number2;
                 break;
             case '%':
                 result = number1 % number2;
                 break;
             case '^':
-                result = 1;
-                for (int i = 0; i < number2; i++) {
-                    result = result * number1;
-                }
+                result = Math.pow(number1, number2);
                 break;
             default:
                 System.out.println("Введенная математическая операция не поддерживается");
-                return;
+                return Double.NaN;
         }
-        System.out.println(number1 + " " + mathSign + " " + number2 + " = " + result);
+        return result;
     }
 }
