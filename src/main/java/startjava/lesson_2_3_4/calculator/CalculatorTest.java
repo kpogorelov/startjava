@@ -6,13 +6,11 @@ public class CalculatorTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Calculator calculator = new Calculator();
-        String responseContinue;
-        boolean isContinue = true;
+        String responseContinue = "yes";
         do {
-            if (isContinue) {
+            if (responseContinue.equals("yes")) {
                 System.out.print("Введите математическое выражение: ");
-                calculator.setMathExpression(scanner.nextLine().split(" "));
-                double result = calculator.calculate();
+                double result = calculator.calculate(scanner.nextLine().split(" "));
                 if (result % 1 == 0) {
                     System.out.println((int) result);
                 } else {
@@ -21,11 +19,6 @@ public class CalculatorTest {
             }
             System.out.println("Вы желаете продолжить вычисления? <yes/no>");
             responseContinue = scanner.nextLine();
-            if (!responseContinue.equals("yes") && !responseContinue.equals("no")) {
-                isContinue = false;
-            } else {
-                isContinue = true;
-            }
         } while (!responseContinue.equals("no"));
     }
 }
