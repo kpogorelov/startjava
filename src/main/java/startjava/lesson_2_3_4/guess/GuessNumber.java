@@ -15,12 +15,10 @@ public class GuessNumber {
     }
 
     public void start() {
-        player1.setPlayed(true);
-        player2.setPlayed(true);
         Arrays.fill(player1.getNumbers(), 0, player1.getAttempt(), 0);
         Arrays.fill(player2.getNumbers(), 0, player2.getAttempt(), 0);
-        player1.setAttempt(0);
-        player2.setAttempt(0);
+        player1.clear();
+        player2.clear();
         Scanner scanner = new Scanner(System.in);
         while (true) {
             if (!player1.isPlayed() && !player2.isPlayed()) {
@@ -39,17 +37,17 @@ public class GuessNumber {
             System.out.println(player.getName() + " введите число");
             player.setNumber(scanner.nextInt());
             scanner.nextLine();
-            for (int i = 0; i < player.getNumbers().length; i++) {
-                if (i == player.getNumbers().length - 1) {
+            for (int i = 0; i < player.getLength(); ) {
+                if (i == player.getLength() - 1) {
                     System.out.println("У игрока " + player.getName() + " закончились попытки ввода чисел");
-                    player.getNumbers()[i] = player.getNumber();
+                    System.out.println("getLength" + (player.getLength() - 1));
+                    player.setNumbers(player.getNumber());
                     player.setPlayed(false);
                     break;
                 }
-                if (player.getNumbers()[i] == 0) {
-                    player.getNumbers()[i] = player.getNumber();
-                    break;
-                }
+                player.setNumbers(player.getNumber());
+                player.setLength(player.getLength() - 1);
+                break;
             }
             if (player.getNumber() == computerNumber) {
                 System.out.println("Игрок " + player.getName() + " угадал число " + computerNumber + " с " + player.getAttempt() + " попытки");

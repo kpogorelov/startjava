@@ -1,9 +1,12 @@
 package startjava.lesson_2_3_4.guess;
 
+import java.util.Arrays;
+
 public class Player {
     private String name;
     private int number;
     private int[] numbers = new int[10];
+    private int length = numbers.length;
 
     private int attempt;
     private boolean isPlayed = true;
@@ -21,12 +24,12 @@ public class Player {
     }
 
     public void setNumber(int number) {
-        this.number = number;
         attempt++;
+        this.number = number;
     }
 
     public int[] getNumbers() {
-        return numbers;
+        return Arrays.copyOf(numbers, attempt);
     }
 
     public boolean isPlayed() {
@@ -43,5 +46,33 @@ public class Player {
 
     public void setAttempt(int attempt) {
         this.attempt = attempt;
+    }
+
+    public void setNumbers(int number) {
+        if (attempt > numbers.length) {
+            return;
+        }
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == 0) {
+                numbers[i] = number;
+                break;
+            }
+        }
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+
+    public void clear() {
+        Arrays.fill(numbers, 0);
+        setPlayed(true);
+        setAttempt(0);
+        setLength(numbers.length);
     }
 }
