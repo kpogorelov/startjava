@@ -1,11 +1,11 @@
 package startjava.lesson_2_3_4.guess;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Player {
-    private String name;
-    private int number;
-    private int[] numbers = new int[10];
+    private final String name;
+    private final int[] numbers = new int[10];
     private int length = numbers.length;
 
     private int attempt;
@@ -17,15 +17,6 @@ public class Player {
 
     public String getName() {
         return name;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        attempt++;
-        this.number = number;
     }
 
     public int[] getNumbers() {
@@ -44,35 +35,44 @@ public class Player {
         return attempt;
     }
 
-    public void setAttempt(int attempt) {
-        this.attempt = attempt;
-    }
-
-    public void setNumbers(int number) {
-        if (attempt > numbers.length) {
-            return;
-        }
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] == 0) {
-                numbers[i] = number;
-                break;
-            }
-        }
+    public void setNumber(int number) {
+        attempt++;
+        numbers[attempt - 1] = number;
     }
 
     public int getLength() {
         return length;
     }
 
-    public void setLength(int length) {
-        this.length = length;
+    public void clear() {
+        Arrays.fill(numbers, 0, attempt, 0);
+        isPlayed = true;
+        attempt = 0;
+        length = numbers.length;
     }
 
+    void print() {
+        System.out.print("Массив игрока " + name + ": ");
+        for (int playerNumber : getNumbers()) {
+            System.out.print(playerNumber + " ");
+        }
+        System.out.println();
+    }
 
-    public void clear() {
-        Arrays.fill(numbers, 0);
-        setPlayed(true);
-        setAttempt(0);
-        setLength(numbers.length);
+    public void inputNumber(Player player, Scanner scanner) {
+        System.out.println(player.getName() + " введите число");
+        player.setNumber(scanner.nextInt());
+        scanner.nextLine();
+    }
+
+    public boolean checkNumber(Player player, int number) {
+        if (player.getNumbers()[player.getAttempt() - 1] == number) {
+            System.out.println("Игрок " + player.getName() + " угадал число " + number + " с " + player.getAttempt() + " попытки");
+            return true;
+        } else if ((player.getAttempt() - 1) == player.getLength() - 1) {
+            System.out.println("У игрока " + player.getName() + " закончились попытки ввода чисел");
+            player.setPlayed(false);
+        }
+        return false;
     }
 }
