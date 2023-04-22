@@ -26,8 +26,8 @@ public class GuessNumber {
                 break;
             }
         }
-        Player.print(player1);
-        Player.print(player2);
+        player1.print();
+        player2.print();
     }
 
     private boolean isGuessed(Player player, Scanner scanner) {

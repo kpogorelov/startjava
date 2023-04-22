@@ -51,9 +51,9 @@ public class Player {
         length = numbers.length;
     }
 
-    static void print(Player player) {
-        System.out.print("Массив игрока " + player.getName() + ": ");
-        for (int playerNumber : player.getNumbers()) {
+    void print() {
+        System.out.print("Массив игрока " + name + ": ");
+        for (int playerNumber : getNumbers()) {
             System.out.print(playerNumber + " ");
         }
         System.out.println();
