@@ -3,31 +3,64 @@ package startjava.lesson_2_3_4.guess;
 import java.util.Scanner;
 
 public class GuessNumber {
-    private final int hiddenNum;
-    private final Player player1;
-    private final Player player2;
+    private int hiddenNum;
+    private Player[] players;
+    private int round;
 
-    public GuessNumber(Player player1, Player player2) {
-        this.player1 = player1;
-        this.player2 = player2;
-        hiddenNum = (int) (1 + Math.random() * 100);
+    public GuessNumber(Player... players) {
+        this.players = players;
     }
 
     public void start() {
-        player1.clear();
-        player2.clear();
-        Scanner scanner = new Scanner(System.in);
+        round = 1;
+        System.out.println("Игроки кидают жребий");
+        randomPermutation();
+        Player.clear(players);
         System.out.println("У каждого игрока по 10 попыток");
-        while (true) {
-            if (!player1.isPlayed() && !player2.isPlayed()) {
-                System.out.println("У обоих игроков закончились попытки, игра завершена ");
-                break;
-            } else if (isGuessed(player1, scanner) || isGuessed(player2, scanner)) {
+        do {
+            if (winner(players)) {
                 break;
             }
+            hiddenNum = (int) (1 + Math.random() * 100);
+            System.out.println("Начался " + round + " раунд");
+            Player.clearAfterRound(players);
+            oneRound();
+        } while (round < 4);
+        Player.print(players);
+    }
+
+    private void oneRound() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            boolean isTrue = true;
+            for (Player player : players) {
+                if (player.isPlayed()) {
+                    isTrue = false;
+                    if (isGuessed(player, scanner)) {
+                        player.setWinRound(player.getWinRound() + 1);
+                        round++;
+                        return;
+                    } else {
+                        continue;
+                    }
+                }
+                if (isTrue) {
+                    System.out.println("Попытки всех игроков закончились");
+                    round++;
+                    return;
+                }
+            }
         }
-        player1.print();
-        player2.print();
+    }
+
+    private boolean winner(Player[] players) {
+        for (int i = 0; i < players.length; i++) {
+            if (players[i].getWinRound() == 2) {
+                System.out.println("Игрок " + players[i].getName() + " одержал победу в серии раундов, игра завершена");
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean isGuessed(Player player, Scanner scanner) {
@@ -40,5 +73,24 @@ public class GuessNumber {
                     " чем загадал компьютер");
         }
         return false;
+    }
+
+    public static Player[] playersInitializer(String names) {
+        String[] str = names.split(" ");
+        Player[] players = new Player[str.length];
+        for (int i = 0; i < players.length; i++) {
+            players[i] = new Player(str[i]);
+        }
+        return players;
+    }
+
+    public void randomPermutation() {
+        Player tmp;
+        for (int i = 0; i < players.length; i++) {
+            int randomNumber = (int) (Math.random() * (players.length - 1));
+            tmp = players[i];
+            players[i] = players[randomNumber];
+            players[randomNumber] = tmp;
+        }
     }
 }

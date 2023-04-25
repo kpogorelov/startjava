@@ -6,12 +6,9 @@ public class GuessNumberTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String responseContinue;
-        System.out.println("Введите имя первого игрока:");
-        Player player1 = new Player(scanner.nextLine());
-        System.out.println("Введите имя второго игрока:");
-        Player player2 = new Player(scanner.nextLine());
+        System.out.println("Введите через пробел имена игроков которые будут принимать участие в игре: ");
+        GuessNumber game = new GuessNumber(GuessNumber.playersInitializer(scanner.nextLine()));
         do {
-            GuessNumber game = new GuessNumber(player1, player2);
             game.start();
             do {
                 System.out.println("Вы желаете повторить игру? <yes/no>");

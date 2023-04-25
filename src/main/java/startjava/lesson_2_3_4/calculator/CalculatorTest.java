@@ -5,13 +5,17 @@ import java.util.Scanner;
 public class CalculatorTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Calculator calculator = new Calculator();
         String responseContinue = "yes";
         do {
             if (responseContinue.equals("yes")) {
-                System.out.print("Введите математическое выражение: ");
-                double result = calculator.calculate(scanner.nextLine());
-                Calculator.printResult(result);
+                try {
+                    System.out.print("Введите математическое выражение: ");
+                    double result = Calculator.calculate(scanner.nextLine());
+                    Calculator.printResult(result);
+                } catch (ArithmeticException | IllegalStateException e) {
+                    System.out.println(e.getMessage());
+                    continue;
+                }
             }
             System.out.println("Вы желаете продолжить вычисления? <yes/no>");
             responseContinue = scanner.nextLine();
