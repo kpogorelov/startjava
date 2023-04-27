@@ -16,7 +16,7 @@ public class GuessNumber {
         System.out.println("Игроки кидают жребий");
         randomPermutation();
         Player.clear(players);
-        System.out.println("У каждого игрока по 10 попыток");
+        System.out.println("У каждого игрока по" + Player.ATTEMPTS_COUNT + " попыток");
         do {
             if (winner(players)) {
                 break;
@@ -69,7 +69,7 @@ public class GuessNumber {
             if (player.checkNumber(player, hiddenNum)) {
                 return true;
             }
-            System.out.println("Вы ввели число" + (player.getNumbers()[player.getAttempt() - 1] > hiddenNum ? " больше" : " меньше") +
+            System.out.println("Вы ввели число" + (player.getNumbers()[player.notEmptyArrayElements() - 1] > hiddenNum ? " больше" : " меньше") +
                     " чем загадал компьютер");
         }
         return false;
