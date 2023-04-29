@@ -7,7 +7,7 @@ public class GuessNumberTest {
         Scanner scanner = new Scanner(System.in);
         String responseContinue;
         System.out.println("Введите через пробел имена игроков которые будут принимать участие в игре: ");
-        GuessNumber game = new GuessNumber(GuessNumber.playersInitializer(scanner.nextLine()));
+        GuessNumber game = new GuessNumber(scanner.nextLine());
         do {
             game.start();
             do {
