@@ -4,23 +4,13 @@ import java.util.Arrays;
 
 public class Player {
     private final String name;
-    static final int LENGTH_ARRAY = 10;
-    private final int[] numbers = new int[LENGTH_ARRAY];
-
-    static final int ATTEMPTS_COUNT = LENGTH_ARRAY;
+    static final int CAPACITY = 10;
+    private final int[] numbers = new int[CAPACITY];
     private boolean isPlayed = true;
-    private int winRound;
+    private int score;
 
     public Player(String name) {
         this.name = name;
-    }
-
-    public int getWinRound() {
-        return winRound;
-    }
-
-    public void setWinRound(int winRound) {
-        this.winRound = winRound;
     }
 
     public String getName() {
@@ -31,6 +21,13 @@ public class Player {
         return Arrays.copyOf(numbers, notEmptyArrayElements());
     }
 
+    public void addNumber(int number) {
+        if (number < GuessNumber.FROM_NUMBER || number > GuessNumber.TO_NUMBER) {
+            throw new ArithmeticException("Вводимое число игроком должно быть больше нуля и меньше чем 100");
+        }
+        numbers[getNumbers().length] = number;
+    }
+
     public boolean isPlayed() {
         return isPlayed;
     }
@@ -39,30 +36,22 @@ public class Player {
         isPlayed = played;
     }
 
-    public void setNumber(int number) {
-        if (number <= GuessNumber.FROM_NUMBER - 1 || number > GuessNumber.TO_NUMBER) {
-            throw new ArithmeticException("Вводимое число игроком должно быть больше нуля и меньше чем 100");
-        }
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] == 0) {
-                numbers[i] = number;
-                return;
-            }
-        }
+    public int getScore() {
+        return score;
     }
 
-    public static void clear(Player[] players) {
-        for (Player player : players) {
-            Arrays.fill(player.numbers, 0, player.notEmptyArrayElements(), 0);
-            player.winRound = 0;
-        }
+    public void setScore(int winRound) {
+        this.score = winRound;
     }
 
-    public static void clearAfterRound(Player[] players) {
-        for (int i = 0; i < players.length; i++) {
-            Arrays.fill(players[i].numbers, 0, players[i].notEmptyArrayElements(), 0);
-            players[i].isPlayed = true;
-        }
+    void clear() {
+        Arrays.fill(numbers, 0, notEmptyArrayElements(), 0);
+        score = 0;
+    }
+
+    void clearAfterRound() {
+        Arrays.fill(numbers, 0, notEmptyArrayElements(), 0);
+        isPlayed = true;
     }
 
     public int notEmptyArrayElements() {

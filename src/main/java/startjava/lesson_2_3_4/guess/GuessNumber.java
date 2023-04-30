@@ -22,15 +22,19 @@ public class GuessNumber {
     public void start() {
         System.out.println("Игроки кидают жребий");
         randomPermutation();
-        Player.clear(players);
-        System.out.println("У каждого игрока по" + Player.ATTEMPTS_COUNT + " попыток");
+        for (Player value : players) {
+            value.clear();
+        }
+        System.out.println("У каждого игрока по" + Player.CAPACITY + " попыток");
         int counter = 1;
         do {
             if (winner(players)) {
                 break;
             }
             System.out.println("Начался " + counter + " раунд");
-            Player.clearAfterRound(players);
+            for (Player player : players) {
+                player.clearAfterRound();
+            }
             oneRound();
             counter++;
             refreshHiddenNum();
@@ -46,7 +50,7 @@ public class GuessNumber {
                 if (player.isPlayed()) {
                     isTrue = false;
                     if (isGuessed(player, scanner)) {
-                        player.setWinRound(player.getWinRound() + 1);
+                        player.setScore(player.getScore() + 1);
                         return;
                     } else {
                         continue;
@@ -60,7 +64,7 @@ public class GuessNumber {
         }
     }
 
-     private void print() {
+    private void print() {
         for (int i = 0; i < players.length; i++) {
             System.out.print("Массив игрока " + players[i].getName() + " ");
             for (int j = 0; j < players[i].getNumbers().length; j++) {
@@ -73,7 +77,7 @@ public class GuessNumber {
     private void inputNumber(Player player, Scanner scanner) {
         System.out.println(player.getName() + " введите число");
         try {
-            player.setNumber(scanner.nextInt());
+            player.addNumber(scanner.nextInt());
         } catch (ArithmeticException e) {
             System.out.println(e.getMessage());
             inputNumber(player, scanner);
@@ -86,7 +90,7 @@ public class GuessNumber {
         if (player.getNumbers()[player.notEmptyArrayElements() - 1] == number) {
             System.out.println("Игрок " + player.getName() + " угадал число " + number + " с " + player.notEmptyArrayElements() + " попытки");
             return true;
-        } else if ((player.notEmptyArrayElements() - 1) == Player.LENGTH_ARRAY - 1) {
+        } else if ((player.notEmptyArrayElements() - 1) == Player.CAPACITY - 1) {
             System.out.println("У игрока " + player.getName() + " закончились попытки ввода чисел");
             player.setPlayed(false);
         }
@@ -95,7 +99,7 @@ public class GuessNumber {
 
     private boolean winner(Player[] players) {
         for (int i = 0; i < players.length; i++) {
-            if (players[i].getWinRound() == 2) {
+            if (players[i].getScore() == 2) {
                 System.out.println("Игрок " + players[i].getName() + " одержал победу в серии раундов, игра завершена");
                 return true;
             }
