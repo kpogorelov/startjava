@@ -26,7 +26,7 @@ public class GuessNumber {
         }
         System.out.println("У каждого игрока по" + Player.CAPACITY + " попыток");
         int counter = 1;
-        do {
+        for (int i = 1; i <= ROUND_LIMIT; i++) {
             if (winnerCheck(players)) {
                 break;
             }
@@ -35,9 +35,8 @@ public class GuessNumber {
                 player.clearAfterRound();
             }
             startRound();
-            counter++;
             refreshHiddenNum();
-        } while (counter <= ROUND_LIMIT);
+        }
         print();
     }
 
